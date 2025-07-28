@@ -40,6 +40,5 @@ The application consists of three main components:
 The `MemoryManager` uses Swift's `UnsafeMutablePointer` to demonstrate real memory allocation, making it an authentic educational tool for understanding low-level memory concepts.
 
 ## Safety Note
-```diff
--This tool is designed for educational purposes and properly manages memory allocation and deallocation to prevent memory leaks and crashes.
-```
+
+*This tool is designed for educational purposes and properly manages memory allocation and deallocation to prevent memory leaks and crashes.*
