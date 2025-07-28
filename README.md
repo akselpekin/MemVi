@@ -1,3 +1,5 @@
+![art](app_screenshot.png)
+
 # MemVi - Memory Visualizer
 
 An educational GUI tool for computer architecture learning, focusing on memory allocation and visualization.
