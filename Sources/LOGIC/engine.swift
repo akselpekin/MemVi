@@ -161,22 +161,18 @@ final class MemoryManager: ObservableObject {
                 ? String(trimmed.dropFirst().dropLast()).trimmingCharacters(in: .whitespacesAndNewlines)
                 : trimmed
             
-            let elements = cleanContent.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            
-            guard !elements.isEmpty && !elements.contains("") else {
-                return false
-            }
-            
-            return elements.allSatisfy { element in
-                if Int64(element) != nil {
-                    return true
+            if cleanContent.contains(",") {
+                let elements = cleanContent.components(separatedBy: ",").map { 
+                    $0.trimmingCharacters(in: .whitespacesAndNewlines) 
                 }
-                if Double(element) != nil {
-                    return true
+                
+                guard !elements.contains("") && !elements.isEmpty else {
+                    return false
                 }
-                return !element.isEmpty && !element.contains(" ") && element.allSatisfy { char in
-                    char.isLetter || char.isNumber || "_-".contains(char)
-                }
+                
+                return elements.allSatisfy { !$0.isEmpty }
+            } else {
+                return !cleanContent.isEmpty
             }
         }
     }
